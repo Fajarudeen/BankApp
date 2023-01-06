@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <h2 style="text-align: center;">Login Page</h2>
+        <form (ngSubmit)="login()" [formGroup]="loginForm" class="border mt-5 p-5">
+            <div class="mb-2">
+                <label for="uname" class="form-label">Account number</label>
+                <input name="acno" formControlName="acno" type="text" class="form-control" id="uname">
+              </div>
+
+              <div *ngIf="this.loginForm.get('acno')?.touched && this.loginForm.get('acno')?.errors" style="color: red;">
+                Invalid Account Number
+              </div>
+
+              <div class="mb-2">
+                <label for="pswd" class="form-label">Password</label>
+                <input name="pswd" formControlName="pswd" type="password" class="form-control" id="pswd">
+              </div>
+
+              <div *ngIf="this.loginForm.get('pswd')?.touched && this.loginForm.get('pswd')?.errors" style="color: red;">
+                Invalid Password
+              </div>
+
+              <div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <span style="float: right;">New user? click here to <a routerLink="register">register</a></span>
+              </div>
+        </form>
+    </div>
+    <div class="col-4"></div>
+</div>

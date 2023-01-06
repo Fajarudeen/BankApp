@@ -1,0 +1,101 @@
+<!-- navbar -->
+<ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="/transaction"> transaction history</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link btn" (click)="delete()">Delete My Account</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link btn" (click)="logout()">Log out</a>
+  </li>
+</ul>
+
+<div class="morpheus-den-gradient color-block mb-3 mx-auto rounded-circle z-depth-1-half">
+
+    <!-- DEPOSIT -->
+    <h2 style="text-align: center;">Welcome <span style="color: rgb(132, 13, 132);">{{user}}</span></h2>
+    <!-- delete child selector -->
+
+    <app-deleteconfirm (onDelete)="onDelete($event)" (onCancel)="cancel()" [item]="acno"></app-deleteconfirm>
+  
+  <div [ngClass]="acno?'cc':'' " class="row">
+
+    <div class="col-6">
+        <form (ngSubmit)="deposite()" [formGroup]="depositeForm" class="border mt-5 p-5">
+            <div class="mb-2">
+                <label for="acno" class="form-label">Account number</label>
+                <input name="acno" formControlName="acno" type="text" class="form-control" id="uname">
+              </div>
+              <div *ngIf="this.depositeForm.get('acno')?.touched && this.depositeForm.get('acno')?.errors" style="color: red;">
+                Invalid Account Number
+              </div>
+
+              <div class="mb-2">
+                <label for="pswd" class="form-label">Password</label>
+                <input name="pswd" formControlName="pswd" type="password" class="form-control" id="pswd">
+              </div>
+
+              <div *ngIf="this.depositeForm.get('pswd')?.touched && this.depositeForm.get('pswd')?.errors" style="color: red;">
+                Invalid Password
+              </div>
+
+              <div class="mb-2">
+                <label for="amount" class="form-label">Amount</label>
+                <input name="amount" formControlName="amount" type="text" class="form-control" id="amount">
+              </div>
+              <div *ngIf="this.depositeForm.get('amount')?.touched && this.depositeForm.get('amount')?.errors" style="color: red;">
+                Invalid Amount
+              </div>
+
+
+              <div>
+                <button type="submit" class="btn btn-primary">Deposit</button>
+              </div>
+        </form>
+    </div>
+
+    <!-- widraWAL --> 
+    
+     <div class="col-6">
+
+        <!-- <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4"> -->
+                <form (ngSubmit)="withdraw()" [formGroup]="withdrawForm" class="border mt-5 p-5">
+                    <div class="mb-2">
+                        <label for="uname" class="form-label">Account number</label>
+                        <input name="acno" formControlName="acno" type="text" class="form-control" id="uname">
+                      </div>
+                      <div *ngIf="this.withdrawForm.get('acno')?.touched && this.withdrawForm.get('acno')?.errors" style="color: red;">
+                        Invalid Account Number
+                      </div>
+        
+                      <div class="mb-2">
+                        <label for="pswd" class="form-label">Password</label>
+                        <input name="pswd" formControlName="pswd" type="password" class="form-control" id="pswd">
+                      </div>
+        
+                      <div *ngIf="this.withdrawForm.get('pswd')?.touched && this.withdrawForm.get('pswd')?.errors" style="color: red;">
+                        Invalid Password
+                      </div>
+
+                      <div class="mb-2">
+                        <label for="amount" class="form-label">Amount</label>
+                        <input name="amount" formControlName="amount" type="text" class="form-control" id="amount">
+                      </div>
+                      <div *ngIf="this.withdrawForm.get('amount')?.touched && this.withdrawForm.get('amount')?.errors" style="color: red;">
+                        Invalid Amount
+                      </div>
+        
+                      <div>
+                        <button type="submit" class="btn btn-primary">submit</button>
+                      </div>
+                </form>
+            <!-- </div> -->
+            <div class="col-4"></div>
+        <!-- </div> -->
+
+    </div>
+</div>
+</div>
