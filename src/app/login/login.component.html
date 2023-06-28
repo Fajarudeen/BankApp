@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-4"></div>
     <div class="col-4">
-      <h2 style="text-align: center;">Login Page</h2>
-        <form (ngSubmit)="login()" [formGroup]="loginForm" class="border mt-5 p-5">
+        <form (ngSubmit)="login()" [formGroup]="loginForm" class="text-white shadow-lg bg-dark rounded mt-5 p-5">
+          <h2 class="fw-bolder mb-5" style="text-align:center;">Login</h2>
             <div class="mb-2">
                 <label for="uname" class="form-label">Account number</label>
                 <input name="acno" formControlName="acno" type="text" class="form-control" id="uname">
@@ -21,7 +21,7 @@
                 Invalid Password
               </div>
 
-              <div>
+              <div class="mt-5">
                 <button type="submit" class="btn btn-primary">Login</button>
                 <span style="float: right;">New user? click here to <a routerLink="register">register</a></span>
               </div>

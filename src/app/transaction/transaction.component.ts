@@ -17,12 +17,12 @@ export class TransactionComponent implements OnInit {
   ngOnInit(): void {
     if (localStorage.getItem("currentAcno")) {
       this.acno=Number(localStorage.getItem("currentAcno"))
-      console.log(this.acno);
+      // console.log(this.acno);
     }
     this.apiService.transaction(this.acno)
     .subscribe((result:any)=>{
       this.transactions = result.transaction
-      console.log(this.transactions);
+      // console.log(this.transactions);
       
     })
   }

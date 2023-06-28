@@ -2,8 +2,8 @@
     <div class="col-4"></div>
     <div class="col-4">
       
-        <form (ngSubmit)="register()" [formGroup]="registerForm" class="border mt-5 p-5">
-          
+        <form (ngSubmit)="register()" [formGroup]="registerForm" class="text-white shadow-lg bg-dark rounded mt-5 p-5">
+          <h2 class="fw-bolder mb-5" style="text-align:center;">Register</h2>
             <div class="mb-2">
                 <label for="uname" class="form-label">Username</label>
                 <input name="uname" formControlName="uname" type="text" class="form-control" id="uname">
@@ -31,7 +31,7 @@
                 Invalid Password
               </div>
 
-              <div>
+              <div class="mt-5">
                 <button type="submit" class="btn btn-primary">Register</button>
                 <span style="float: right;">Already a  user? click here to <a routerLink=''>Login</a></span>
               </div>
